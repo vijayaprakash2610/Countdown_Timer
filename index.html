@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown_timer</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <img src="img/logo.png" class="logo">
+
+    <div class="content"> 
+        <p>website is under maintenance</p>
+        <h2>we're <span>launching</span>soon</h2>
+    <div class="launch-time">
+        <div>
+            <p id="days">00</p>
+            <span>days</span>
+        </div>
+        <div>
+            <p id="hours">00</p>
+            <span>hours</span>
+        </div>
+        <div>
+            <p id="minutes">00</p>
+            <span>minutes</span>
+        </div>
+        <div>
+            <p id="seconds">00</p>
+            <span>seconds</span>
+        </div>
+    </div> 
+        <button type="button">learn more<img src="c:\Users\akara\OneDrive\Desktop\portfolio\img\triangle.png"></button>
+    </div>
+    <img src="c:\Users\akara\OneDrive\Desktop\portfolio\img\rocket.png" class="rocket">
+</div>
+
+
+<script>
+    // Set the date we're counting down to
+const countdownDate = new Date("December 31, 2024 23:59:59").getTime();
+
+// Update the countdown every 1 second
+const x = setInterval(function() {
+  
+  // Get the current date and time
+  const now = new Date().getTime();
+  
+  // Calculate the remaining time
+  const distance = countdownDate - now;
+
+  // Time calculations for days, hours, minutes, and seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById("days").innerHTML = days ;
+  document.getElementById("hours").innerHTML = hours ;
+  document.getElementById("minutes").innerHTML = minutes ;
+  document.getElementById("seconds").innerHTML = seconds ;
+
+  // If the countdown is finished, display a message
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("message").innerHTML = "The wait is over! Our website is live now!";
+  }
+}, 1000);
+
+</script>
+</body>
+</html>
